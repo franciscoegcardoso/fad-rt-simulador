@@ -4,6 +4,8 @@ Simulador parametrizado de decisões sobre a reforma tributária para estabeleci
 
 **Página publicada:** https://franciscoegcardoso.github.io/fad-rt-simulador/
 
+**Roteiro do empreendedor** (o que decidir, quando e como agir até 2033): https://franciscoegcardoso.github.io/fad-rt-simulador/roteiro.html — também integrado ao simulador como a área "Roteiro do empreendedor".
+
 ## O que é
 
 Protótipo funcional em arquivo único (HTML + JavaScript, sem servidor, sem banco de dados, sem serviço externo e sem IA generativa). Todos os cálculos rodam no navegador; nada é enviado para fora da máquina de quem abre a página.

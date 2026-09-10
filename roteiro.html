@@ -1,0 +1,391 @@
+<title>Roteiro do Empreendedor FAD-RT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+:root{
+  --ground:#ECEFEB; --surface:#FBFCFA; --surface-2:#E2E7E2; --sunk:#DFE4DF;
+  --ink:#0E1A1F; --ink-2:#3D4E56; --ink-3:#6C7D84;
+  --rule:#C9D2CC; --rule-strong:#A9B6AE;
+  --accent:#0B6E7F; --accent-ink:#07505E; --accent-soft:#D4E5E7;
+  --copper:#A9501C; --copper-ink:#7E3A12; --copper-soft:#F0E0D3;
+  --ok:#2C6E51; --ok-soft:#D8E9DF; --warn:#8C6410; --warn-soft:#F2E7CB; --crit:#9E3427; --crit-soft:#F3DAD5;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0B1317; --surface:#111C21; --surface-2:#17252B; --sunk:#0E1A1F;
+    --ink:#E3EAE7; --ink-2:#A5B5BA; --ink-3:#73858B; --rule:#22343B; --rule-strong:#31474F;
+    --accent:#4CB6C4; --accent-ink:#8AD3DC; --accent-soft:#10333A; --copper:#DA8B52; --copper-ink:#F0B383; --copper-soft:#33231A;
+    --ok:#5CB98A; --ok-soft:#122C22; --warn:#D6A93F; --warn-soft:#2E2513; --crit:#E27764; --crit-soft:#331A16;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0B1317; --surface:#111C21; --surface-2:#17252B; --sunk:#0E1A1F;
+  --ink:#E3EAE7; --ink-2:#A5B5BA; --ink-3:#73858B; --rule:#22343B; --rule-strong:#31474F;
+  --accent:#4CB6C4; --accent-ink:#8AD3DC; --accent-soft:#10333A; --copper:#DA8B52; --copper-ink:#F0B383; --copper-soft:#33231A;
+  --ok:#5CB98A; --ok-soft:#122C22; --warn:#D6A93F; --warn-soft:#2E2513; --crit:#E27764; --crit-soft:#331A16;
+}
+*{box-sizing:border-box}
+body{background:var(--ground); color:var(--ink); font-family:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif; font-size:15px; line-height:1.55; margin:0; -webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px; margin:0 auto; padding:0 24px 80px}
+h1,h2,h3,h4{font-family:"IBM Plex Sans Condensed","IBM Plex Sans",Arial,sans-serif; margin:0; text-wrap:balance; letter-spacing:-.01em}
+.mono,.cod{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace; font-variant-numeric:tabular-nums}
+.cod{font-size:12px; color:var(--ink-3)}
+.eyebrow{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-3)}
+a{color:var(--accent-ink)}
+p{margin:0 0 10px; max-width:72ch}
+ul,ol{margin:0 0 10px; padding-left:22px; max-width:76ch} li{margin:3px 0}
+/* cabeçalho */
+.hd{border-bottom:1px solid var(--rule); background:var(--surface)}
+.hd-in{max-width:1080px; margin:0 auto; padding:26px 24px 22px; display:grid; gap:14px}
+.hd h1{font-size:34px; font-weight:700; line-height:1.02; max-width:22ch}
+.hd .sub{color:var(--ink-2); font-size:15.5px; max-width:64ch}
+.carimbos{display:flex; flex-wrap:wrap; gap:8px}
+.carimbo{border:1px solid var(--accent); color:var(--accent-ink); background:var(--accent-soft); padding:6px 10px; display:grid; gap:1px; min-width:150px}
+.carimbo .l{font-family:"IBM Plex Mono",monospace; font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; opacity:.85}
+.carimbo .v{font-family:"IBM Plex Mono",monospace; font-size:12px; font-weight:600}
+.carimbo.demo{border-color:var(--copper); color:var(--copper-ink); background:var(--copper-soft)}
+/* sumário */
+.sumario{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1px; background:var(--rule); border:1px solid var(--rule); margin:22px 0 30px}
+.sumario a{background:var(--surface); padding:11px 13px; text-decoration:none; color:var(--ink); display:grid; gap:2px}
+.sumario a .n{font-family:"IBM Plex Sans Condensed",sans-serif; font-weight:600; font-size:14.5px}
+.sumario a .d{font-size:12px; color:var(--ink-3)}
+.sumario a:hover{background:var(--sunk)}
+/* seções */
+section{margin:0 0 40px; scroll-margin-top:16px}
+.sec-cab{display:grid; gap:4px; margin:0 0 14px; padding-top:14px; border-top:2px solid var(--accent)}
+.sec-cab h2{font-size:24px}
+.sec-cab .lead{color:var(--ink-2); max-width:72ch}
+.bloco{background:var(--surface); border:1px solid var(--rule); margin-bottom:14px}
+.bloco>header{padding:11px 16px; border-bottom:1px solid var(--rule); display:flex; flex-wrap:wrap; gap:6px 14px; align-items:baseline; justify-content:space-between}
+.bloco>header h3{font-size:17px; font-weight:600}
+.corpo{padding:14px 16px}
+.nota{color:var(--ink-3); font-size:12.5px; max-width:80ch; margin:0}
+/* linha do tempo */
+.tl{display:grid; grid-template-columns:150px 1fr; gap:0; position:relative}
+.tl::before{content:""; position:absolute; left:150px; top:0; bottom:0; width:2px; background:var(--rule-strong)}
+.tl .d{padding:12px 14px 12px 0; text-align:right; font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--ink-2); border-bottom:1px solid var(--rule)}
+.tl .d b{display:block; color:var(--ink); font-size:13.5px}
+.tl .e{padding:12px 16px 12px 22px; border-bottom:1px solid var(--rule); position:relative}
+.tl .e::before{content:""; position:absolute; left:-6px; top:18px; width:10px; height:10px; border-radius:50%; background:var(--surface); border:2px solid var(--accent)}
+.tl .e.crit::before{background:var(--copper); border-color:var(--copper)}
+.tl .e.aberto::before{background:var(--accent)}
+.tl .e h4{font-size:15px; font-weight:600}
+.tl .e p{margin:3px 0 0; color:var(--ink-2); font-size:13.5px}
+.tl .d:last-of-type,.tl .e:last-of-type{border-bottom:0}
+/* selos */
+.selo{display:inline-block; font-family:"IBM Plex Mono",monospace; font-size:9.5px; letter-spacing:.08em; text-transform:uppercase; padding:2px 6px; border:1px solid currentColor; white-space:nowrap; vertical-align:middle}
+.selo.ok{color:var(--ok); background:var(--ok-soft)} .selo.warn{color:var(--warn); background:var(--warn-soft)} .selo.crit{color:var(--crit); background:var(--crit-soft)}
+.selo.acc{color:var(--accent-ink); background:var(--accent-soft)} .selo.mudo{color:var(--ink-3); background:var(--surface-2)} .selo.cop{color:var(--copper-ink); background:var(--copper-soft)}
+/* ficha de decisão */
+.ficha{display:grid; grid-template-columns:170px 1fr; gap:0; border-top:1px solid var(--rule)}
+.ficha>div{padding:9px 14px; border-bottom:1px solid var(--rule)}
+.ficha>div:nth-child(odd){font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); background:var(--surface-2); padding-top:12px}
+.ficha>div:nth-child(even){font-size:14px}
+.ficha>div:nth-child(even) p{margin:0 0 6px}
+.ficha>div:nth-child(even) p:last-child{margin:0}
+.ficha ul{margin:0}
+/* tabelas */
+.rol{overflow-x:auto}
+table{border-collapse:collapse; width:100%; font-size:13px}
+th,td{padding:7px 10px; text-align:left; border-bottom:1px solid var(--rule); vertical-align:top}
+thead th{font-family:"IBM Plex Mono",monospace; font-size:9.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); font-weight:500; background:var(--surface-2); white-space:nowrap; border-bottom:1px solid var(--rule-strong)}
+td.n{text-align:right; font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums; white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+/* grade de tiles */
+.tiras{display:grid; gap:1px; background:var(--rule); border:1px solid var(--rule)}
+@media(min-width:700px){ .tiras{grid-template-columns:repeat(3,1fr)} .tiras.t4{grid-template-columns:repeat(4,1fr)} }
+.tira{background:var(--surface); padding:12px 14px}
+.tira .l{font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); display:block; margin-bottom:4px}
+.tira .v{font-family:"IBM Plex Mono",monospace; font-size:19px; font-weight:600; letter-spacing:-.03em; display:block}
+.tira .v.ok{color:var(--ok)} .tira .v.crit{color:var(--crit)} .tira .v.warn{color:var(--warn)} .tira .v.acc{color:var(--accent-ink)}
+.tira .dd{font-size:12px; color:var(--ink-3); margin-top:3px; display:block}
+/* checklist */
+.check{list-style:none; padding:0; margin:0; display:grid; gap:0; border:1px solid var(--rule); background:var(--surface)}
+.check li{display:grid; grid-template-columns:26px 1fr auto; gap:10px; padding:10px 14px; border-bottom:1px solid var(--rule); align-items:start}
+.check li:last-child{border-bottom:0}
+.check li .box{width:16px; height:16px; border:1.5px solid var(--rule-strong); margin-top:3px}
+.check li .quando{font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--ink-3); white-space:nowrap}
+.aviso{border-left:3px solid var(--copper); background:var(--copper-soft); padding:10px 14px; color:var(--ink); margin:10px 0 0; max-width:none}
+.aviso.acc{border-left-color:var(--accent); background:var(--accent-soft)}
+.rodape{border-top:1px solid var(--rule); margin-top:40px; padding-top:14px; color:var(--ink-3); font-size:12.5px}
+@media(max-width:640px){ .tl{grid-template-columns:96px 1fr} .tl::before{left:96px} .ficha{grid-template-columns:1fr} .ficha>div:nth-child(odd){padding-bottom:2px; border-bottom:0} }
+@media (prefers-reduced-motion: reduce){ *{scroll-behavior:auto} }
+</style>
+
+<header class="hd"><div class="hd-in">
+  <span class="eyebrow">FAD-RT · guia de implementação para o empreendedor · alimentação fora do lar</span>
+  <h1>O que decidir, quando decidir e como agir até 2033</h1>
+  <p class="sub">Um roteiro para o dono de restaurante, bar, lanchonete ou padaria: cada decisão que a reforma tributária vai exigir, a data em que ela começa a valer, a data em que deixa de ser possível, o que a lei diz e como conferir no simulador antes de agir.</p>
+  <div class="carimbos">
+    <div class="carimbo"><span class="l">data-base normativa</span><span class="v">10/09/2026</span></div>
+    <div class="carimbo"><span class="l">regras</span><span class="v">2026.09.4 · motor 3.2.0</span></div>
+    <div class="carimbo"><span class="l">janela de opção</span><span class="v">aberta até 30/09/2026</span></div>
+    <div class="carimbo demo"><span class="l">números do exemplo</span><span class="v">restaurante fictício</span></div>
+  </div>
+</div></header>
+
+<div class="wrap">
+<nav class="sumario" aria-label="Sumário">
+  <a href="#linha"><span class="n">Linha do tempo</span><span class="d">todas as datas, do que está aberto hoje a 2033</span></a>
+  <a href="#d1"><span class="n">1 · Validar o regime atual</span><span class="d">Simples, anexo, limites e enquadramento</span></a>
+  <a href="#d2"><span class="n">2 · Mudar de regime?</span><span class="d">unificado, híbrido ou presumido, e quando</span></a>
+  <a href="#d3"><span class="n">3 · Fornecedor com nota</span><span class="d">quanto vale pagar a mais, por tipo de item</span></a>
+  <a href="#todas"><span class="n">Todas as decisões</span><span class="d">início, data crítica, reversibilidade</span></a>
+  <a href="#juridico"><span class="n">Aspectos jurídicos</span><span class="d">o que trava, o que obriga, o que expõe</span></a>
+  <a href="#30dias"><span class="n">Os próximos 30 dias</span><span class="d">checklist de setembro de 2026</span></a>
+</nav>
+
+<p class="aviso acc"><b>Como ler este guia.</b> Cada decisão vem numa ficha com a mesma estrutura: a pergunta, quando começar a preparar, a data crítica, se dá para voltar atrás, como conferir no simulador, o que a lei diz e o que fazer. Onde aparece um dispositivo, ele foi lido na fonte primária nesta execução. Onde aparece <span class="selo warn">a confirmar</span>, a informação veio de notícia oficial ou de ato ainda não publicado, e o contador precisa fechar. Os valores em reais são do restaurante fictício da demonstração e servem só para mostrar a ordem de grandeza.</p>
+
+<!-- ============================== LINHA DO TEMPO ============================== -->
+<section id="linha">
+  <div class="sec-cab"><span class="eyebrow">calendário</span><h2>Linha do tempo: o que está aberto hoje e o que vem depois</h2><p class="lead">Datas contadas a partir de 10/09/2026. As marcadas em cobre são irreversíveis quando passam.</p></div>
+  <div class="bloco"><div class="corpo" style="padding:0 16px">
+  <div class="tl">
+    <div class="d"><b>1 a 30/09/2026</b>faltam 20 dias</div>
+    <div class="e aberto"><h4>Janela para optar pelo regime regular de IBS/CBS no 1º semestre de 2027 <span class="selo cop">decisão 2</span></h4><p>A opção é por semestre, exercida em setembro para janeiro e em março para julho, e é <b>irretratável dentro do semestre</b> (LC 123, art. 18, §§ 9º e 10, com a redação da LC 227/2026). As datas de 1 a 30 de setembro vêm da Resolução CGSN 186/2026, lida por notícia oficial. <span class="selo warn">datas a confirmar</span></p></div>
+    <div class="d"><b>30/11/2026</b>faltam 81 dias</div>
+    <div class="e crit"><h4>Prazo para cancelar a opção feita em setembro</h4><p>Quem optou e mudou de ideia tem até esta data, segundo a mesma resolução. Depois dela, o primeiro semestre de 2027 fica travado no regime escolhido. <span class="selo warn">a confirmar</span></p></div>
+    <div class="d"><b>15/12/2026</b>faltam 96 dias</div>
+    <div class="e"><h4>Senado fixa a alíquota de referência da CBS para 2027</h4><p>Até lá as três alíquotas do simulador são hipóteses: 26,50 % e 27,91 % vêm da Resolução CGIBS 14/2026 e 30 % é o limite superior de teste. A decisão de setembro é tomada antes de a alíquota existir; por isso o simulador mostra a faixa, não um número (ADCT, art. 130; LC 214, art. 349).</p></div>
+    <div class="d"><b>01/01/2027</b>faltam 113 dias</div>
+    <div class="e crit"><h4>A reforma começa a valer para o seu negócio</h4><p>CBS integral, PIS e COFINS extintos, IBS a 0,1 %. O regime específico de bares e restaurantes, com a redução de 40 %, passa a existir. Quem ficou no Simples unificado paga tudo dentro do DAS pela tabela nova; quem optou passa a cobrar IBS/CBS por fora e a ter crédito (ADCT, arts. 126 e 127; LC 214, arts. 273 a 276).</p></div>
+    <div class="d"><b>março/2027</b>faltam 202 dias</div>
+    <div class="e aberto"><h4>Segunda janela: regime para julho a dezembro de 2027</h4><p>Mesma regra: opção por semestre, irretratável dentro dele (LC 123, art. 18, § 10). Quem não optou em setembro pode entrar aqui; quem optou pode sair, salvo a trava do ressarcimento explicada na seção jurídica.</p></div>
+    <div class="d"><b>setembro e março, todo ano</b></div>
+    <div class="e"><h4>Revisão semestral do regime</h4><p>A janela se repete a cada semestre. É a cadência natural para reavaliar: o simulador foi feito para ser rodado com os últimos 12 meses antes de cada janela.</p></div>
+    <div class="d"><b>até setembro, todo ano</b></div>
+    <div class="e"><h4>Percentual do crédito presumido nas compras de produtor rural</h4><p>Ato conjunto do Ministério da Fazenda e do Comitê Gestor divulga os percentuais até setembro, valendo de janeiro do ano seguinte (LC 214, art. 168, § 4º). Enquanto não sai, o crédito sobre hortifrúti e ovos de produtor pequeno fica estimado. <span class="selo warn">ato pendente</span></p></div>
+    <div class="d"><b>data indefinida</b></div>
+    <div class="e"><h4>Lei ordinária do Imposto Seletivo sobre bebidas alcoólicas e açucaradas</h4><p>O restaurante não é contribuinte, mas paga o imposto embutido no preço da bebida, sem crédito (LC 214, arts. 409, 410, 422 e 424). Enquanto a lei não existe, zero no simulador significa "lei pendente", não isenção. <span class="selo warn">lei pendente</span></p></div>
+    <div class="d"><b>data indefinida</b></div>
+    <div class="e"><h4>Split payment para venda ao consumidor</h4><p>Retenção do IBS/CBS na liquidação do cartão e do Pix. A primeira etapa é facultativa e restrita a vendas entre empresas; a data para o varejo depende de ato conjunto (LC 214, arts. 31 a 35; Regulamento do IBS, art. 31). Quando chegar, o dinheiro do imposto para de passar pelo caixa. <span class="selo warn">cronograma pendente</span></p></div>
+    <div class="d"><b>01/01/2029</b></div>
+    <div class="e"><h4>Começa a troca do ICMS e do ISS pelo IBS</h4><p>Redução gradual de 90 %, 80 %, 70 % e 60 % nos quatro anos, com o IBS crescendo na mesma proporção. Dentro do Simples a tabela já traz a repartição de cada ano (ADCT, arts. 128 e 129; LC 214, Anexos XVIII e XIX).</p></div>
+    <div class="d"><b>01/01/2033</b></div>
+    <div class="e"><h4>Sistema pleno</h4><p>ICMS e ISS extintos. Use o calendário 2033 no simulador para ver o efeito final da transição sobre o seu histórico.</p></div>
+  </div>
+  </div></div>
+  <div class="tiras t4">
+    <div class="tira"><span class="l">DAS</span><span class="v">dia 20</span><span class="dd">do mês seguinte, pela resolução do CGSN (texto não acessado) <span class="selo warn">a confirmar</span></span></div>
+    <div class="tira"><span class="l">IBS e CBS por fora</span><span class="v">último dia útil</span><span class="dd">do mês seguinte, para quem estiver no regime regular (Regulamento do IBS, arts. 45 e 46)</span></div>
+    <div class="tira"><span class="l">Ressarcimento do saldo a recuperar</span><span class="v">até 180 + 15 dias</span><span class="dd">caso geral; 60 dias para crédito de equipamento (LC 214, arts. 39 e 40)</span></div>
+    <div class="tira"><span class="l">IRPJ e CSLL no Presumido</span><span class="v">trimestral</span><span class="dd">apuração por trimestre, com adicional acima de R$ 60 mil de base (Lei 9.249, art. 3º)</span></div>
+  </div>
+</section>
+
+<!-- ============================== DECISÃO 1 ============================== -->
+<section id="d1">
+  <div class="sec-cab"><span class="eyebrow">decisão 1</span><h2>Validar o regime atual: o que você é hoje, e se isso está certo</h2><p class="lead">Antes de simular qualquer mudança, o histórico precisa fechar com o que foi pago. Se a reconstrução do passado não bate com o DAS, nenhuma projeção merece confiança.</p></div>
+  <div class="bloco">
+    <div class="ficha">
+      <div>pergunta</div><div><p>Em que regime e anexo o estabelecimento está, o faturamento cabe nos limites, e as operações estão classificadas do jeito que a lei exige a partir de 2027?</p></div>
+      <div>quando começar</div><div><p>Agora. É pré-requisito de todas as outras decisões, e a janela de setembro está aberta.</p></div>
+      <div>data crítica</div><div><p><b>30/09/2026</b> para quem quer decidir o primeiro semestre de 2027 com o histórico validado. Depois disso, a validação continua servindo para março de 2027.</p></div>
+      <div>reversível?</div><div><p>Sim. É verificação, não decisão. O que ela revela pode não ser reversível: RBT12 acima do limite, por exemplo, tira o Simples da mesa.</p></div>
+      <div>o que verificar</div><div>
+        <ul>
+          <li><b>Regime e anexo.</b> Restaurante, bar e lanchonete apuram pelo Anexo I do Simples. Padaria com produção própria vendida ao consumidor tem a parcela industrializada no Anexo II e a revenda no Anexo I, com o mesmo RBT12 (LC 123, art. 18, §§ 1º e 4º).</li>
+          <li><b>Limites.</b> Receita dos últimos 12 meses até R$ 4,8 milhões para ficar no Simples; acima de R$ 3,6 milhões o ICMS e o ISS saem do DAS e a comparação do simulador deixa de valer (LC 123, arts. 3º, 13-A, 19 e 20).</li>
+          <li><b>Os últimos 12 meses fecham com o DAS pago?</b> O simulador reconstrói o histórico regra a regra e confronta com o valor recolhido. Diferença não explicada é sinal de receita ou classificação errada, não de arredondamento.</li>
+          <li><b>Operações separadas por natureza.</b> Refeição preparada, bebida preparada, bebida industrializada, bebida alcoólica, revenda sem preparo e fornecimento contratual a empresa têm tratamentos diferentes a partir de 2027 (LC 214, art. 273). Se o caixa e a nota não separam isso hoje, a base de 2027 vai sair errada.</li>
+          <li><b>CNAE.</b> Serve para identificar o segmento, não para decidir o tratamento. A única CNAE citada na lei é a 5620-1/01, refeições coletivas para empresas, e é para excluir da redução de 40 % (LC 214, art. 273, § 2º, I).</li>
+        </ul>
+      </div>
+      <div>no simulador</div><div><p>Dados e parâmetros → Estabelecimento (regime, anexo, CNAE, locador) e Backtest e evidências → Evidências × reconstrução. A base só passa de "informada" a "validada no escopo declarado" quando as evidências independentes fecham.</p></div>
+      <div>com o contador</div><div><p>Pedir a alíquota efetiva do DAS de cada mês, a segregação de receitas por atividade e a confirmação do anexo. Levar a lista de pendências que o simulador gera, com dispositivo e valor, em vez de perguntas soltas.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== DECISÃO 2 ============================== -->
+<section id="d2">
+  <div class="sec-cab"><span class="eyebrow">decisão 2</span><h2>Mudar de regime: se, para qual, e em que semestre</h2><p class="lead">A partir de 2027 há três caminhos para quem está no Simples. Dois deles são decididos em uma janela de 30 dias e travam por seis meses. O terceiro é uma saída do Simples, com consequências na folha que costumam pesar mais que o imposto sobre a venda.</p></div>
+
+  <div class="tiras">
+    <div class="tira"><span class="l">Simples unificado</span><span class="v">nada a fazer</span><span class="dd">IBS e CBS entram no DAS pela tabela nova. Sem crédito nas compras, sem imposto por fora, sem obrigação nova. É o que acontece se você não fizer nada.</span></div>
+    <div class="tira"><span class="l">Simples híbrido</span><span class="v">opção em set/mar</span><span class="dd">Continua no Simples para IRPJ, CSLL, CPP e ICMS/ISS, mas apura IBS/CBS por fora, com crédito nas compras e custo de conformidade (LC 214, art. 41, § 3º; LC 123, art. 18, § 9º).</span></div>
+    <div class="tira"><span class="l">Lucro Presumido</span><span class="v">saída do Simples</span><span class="dd">IRPJ e CSLL sobre base presumida, IBS/CBS no regime regular e a folha volta a pagar 20 % de INSS patronal mais RAT e terceiros (Lei 8.212, art. 22).</span></div>
+  </div>
+
+  <div class="bloco" style="margin-top:14px">
+    <div class="ficha">
+      <div>pergunta</div><div><p>Em algum ano da transição, cobrar IBS/CBS por fora e aproveitar crédito compensa o imposto que sai do DAS, mais o custo de conformidade, mais o efeito no preço e no caixa?</p></div>
+      <div>quando começar</div><div><p>Já, com os últimos 12 meses fechados. A simulação leva minutos; obter do contador o custo de conformidade e dos fornecedores a política de preço para 2027 leva semanas.</p></div>
+      <div>data crítica</div><div><p><b>30/09/2026</b> para valer de janeiro a junho de 2027. <b>Março de 2027</b> para valer de julho a dezembro. Depois, setembro e março de cada ano.</p></div>
+      <div>reversível?</div><div><p><b>Não dentro do semestre.</b> A opção é irretratável para cada período (LC 123, art. 18, § 10). E há uma trava adicional: quem receber ressarcimento de créditos de IBS/CBS no ano corrente ou no anterior <b>não pode sair</b> do regime regular (LC 214, art. 41, § 5º). Pedir ressarcimento é, na prática, uma decisão de ficar por até dois anos.</p></div>
+      <div>o que a conta mostra</div><div>
+        <p>No restaurante fictício, com o histórico de setembro de 2025 a agosto de 2026 e as regras de 2027, o resultado da comparação foi:</p>
+        <div class="rol"><table>
+          <thead><tr><th>alternativa</th><th>resultado no ano vs. unificado</th><th>valor presente 2027–2033 vs. unificado</th><th>faixa nos 3 cenários de alíquota</th><th>leitura</th></tr></thead>
+          <tbody>
+            <tr><td><b>Simples unificado</b></td><td class="n">referência</td><td class="n">referência</td><td class="n">—</td><td>o que acontece sem decisão; a reforma sozinha custa R$ 59.566 no ano</td></tr>
+            <tr><td><b>Simples híbrido</b></td><td class="n">−R$ 38.088</td><td class="n">−R$ 203.414</td><td class="n">−238 mil a −181 mil</td><td>o crédito das compras não paga o imposto por fora, porque 70 % das compras (carnes, arroz, feijão, leite) têm alíquota zero e não geram crédito</td></tr>
+            <tr><td><b>Lucro Presumido</b></td><td class="n">−R$ 9.784</td><td class="n">−R$ 163.838</td><td class="n">−203 mil a −139 mil</td><td>subestimado: o ICMS fora do Simples não foi informado; o INSS patronal sozinho custa R$ 11.664 por mês</td></tr>
+          </tbody>
+        </table></div>
+        <p class="nota" style="margin-top:8px">Decisão do simulador para o exemplo: <b>manter o unificado</b>, porque nenhuma alternativa tem valor presente incremental positivo em nenhum cenário. Não é uma conclusão geral: é o resultado desta composição de compras, canais e folha.</p>
+      </div>
+      <div>o que inverte a conta</div><div>
+        <p>Rodar o simulador com os seus dados é obrigatório, mas estes são os sinais de que a resposta pode ser diferente da do exemplo:</p>
+        <ul>
+          <li><b>Compras com muito crédito.</b> Embalagens, descartáveis, limpeza, gás, serviços, aluguel de pessoa jurídica e equipamentos geram crédito à alíquota cheia (ou reduzida em 70 % no aluguel). Um negócio com custo alto nesses itens e baixo em cesta básica se aproxima do ponto de virada.</li>
+          <li><b>Investimento à vista.</b> No regime regular o crédito de um equipamento é integral e imediato (LC 214, art. 108). Uma reforma de cozinha ou câmara fria programada para 2027 pesa a favor do híbrido naquele ano, e o simulador mostra o efeito na data.</li>
+          <li><b>Fornecedores que absorvem a desoneração.</b> A hipótese que mais muda o sinal do diagnóstico é quanto os fornecedores reduzem o preço ao perderem PIS/COFINS e ICMS. O simulador varre de 0 % a 100 %; a resposta real só vem perguntando aos cinco maiores fornecedores.</li>
+          <li><b>Clientes que são empresas.</b> Quem vende sob contrato a pessoa jurídica não tem a redução de 40 % (LC 214, art. 273, § 2º, I), mas o cliente empresa pode preferir comprar de quem destaca imposto e gera crédito. Isso não está no simulador e é argumento comercial, não tributário.</li>
+          <li><b>Folha pequena e margem alta</b> puxam o Presumido; folha grande o afasta.</li>
+        </ul>
+      </div>
+      <div>no simulador</div><div><p>Comparar alternativas → Horizonte 2027 a 2033 (valor presente, faixa e payback) e Alternativas e plano → ação "forma de recolhimento". Ajuste a taxa de desconto para o custo real do seu dinheiro. A conclusão fica <span class="selo warn">condicionada</span> enquanto faltarem custo de conformidade, alíquota de ICMS fora do Simples ou a política de preço dos fornecedores.</p></div>
+      <div>como agir</div><div>
+        <ol>
+          <li>Rodar com os 12 meses fechados até agosto de 2026.</li>
+          <li>Obter do contador o honorário adicional do regime regular e, se cogitar o Presumido, a alíquota efetiva de ICMS e a confirmação da base de 8 % para alimentação (o serviço em geral é 32 %; a classificação quadruplica a base).</li>
+          <li>Perguntar aos cinco maiores fornecedores como vão reprecificar em 2027 e se destacarão o imposto.</li>
+          <li>Decidir até 30/09/2026 só se a faixa inteira for favorável. Se a faixa cruzar zero, não optar em setembro, colher a informação que falta e reavaliar em março de 2027 com a alíquota do Senado já publicada.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== DECISÃO 3 ============================== -->
+<section id="d3">
+  <div class="sec-cab"><span class="eyebrow">decisão 3</span><h2>Fornecedor com nota: quanto vale pagar a mais</h2><p class="lead">A resposta muda com o regime e, dentro do regime, muda item a item. Para quem fica no Simples unificado a resposta tributária é zero; para quem sai, a tolerância vai de nada a 9 % conforme o produto.</p></div>
+  <div class="bloco">
+    <div class="ficha">
+      <div>pergunta</div><div><p>Um fornecedor que emite nota e destaca imposto pode cobrar quanto a mais que um sem nota, para o custo líquido ficar igual?</p></div>
+      <div>quando começar</div><div><p>Outubro a dezembro de 2026, para que os contratos e o mix de fornecedores estejam no lugar em janeiro de 2027. Antes disso, só depois de saber o regime.</p></div>
+      <div>data crítica</div><div><p>Não há data legal. A data prática é o início do semestre em que o regime escolhido passa a valer, porque o crédito só existe a partir dele.</p></div>
+      <div>reversível?</div><div><p>Sim, com custo de troca (cadastro, teste de qualidade, rendimento). O simulador pede esse custo na ação "fornecedor".</p></div>
+      <div>a regra</div><div>
+        <p>No regime regular, o crédito é o imposto destacado na nota, condicionado a documento idôneo e ao pagamento (LC 214, art. 47). O custo líquido do item é o preço bruto menos o crédito. O fornecedor sem nota, pessoa física ou não contribuinte, não destaca nada e não gera crédito (LC 214, art. 26, IV). Logo, a tolerância é exatamente a alíquota que incide sobre aquele produto:</p>
+        <div class="rol"><table>
+          <thead><tr><th>tipo de item</th><th>tratamento</th><th>tolerância de preço do fornecedor com nota (2027, referência 27,91 %)</th><th>exemplos</th></tr></thead>
+          <tbody>
+            <tr><td>cesta básica nacional</td><td>alíquota zero (LC 214, art. 125 e Anexo I)</td><td class="n"><b>0 %</b></td><td>carnes, aves, peixes, arroz, feijão, leite, manteiga, café, farinhas, açúcar, massas, pão francês, queijos, sal</td></tr>
+            <tr><td>alimentos com redução de 60 %</td><td>0,4 × alíquota (art. 135 e Anexo VII)</td><td class="n"><b>até 3,7 %</b></td><td>óleos vegetais, iogurte, mel, massas recheadas, sucos, pão de forma</td></tr>
+            <tr><td>hortifrúti e ovos</td><td>alíquota zero (art. 148 e Anexo XV); produtor pequeno gera crédito presumido</td><td class="n"><b>0 %</b> hoje; percentual do art. 168 quando publicado</td><td>legumes, verduras, frutas, ovos</td></tr>
+            <tr><td>alíquota cheia</td><td>alíquota integral</td><td class="n"><b>até 9,2 %</b></td><td>embalagens, descartáveis, limpeza, gás, bebidas industrializadas, equipamentos, serviços</td></tr>
+            <tr><td>fornecedor no Simples</td><td>crédito igual ao que ele pagou de CBS/IBS no DAS, informado na nota (LC 123, art. 23, § 2º)</td><td class="n"><b>cerca de 1 %</b></td><td>com alíquota efetiva de 6,7 % e 15,5 % dela sendo CBS/IBS, o crédito é 1,04 % do preço</td></tr>
+            <tr><td>aluguel de locador PJ</td><td>alíquota reduzida em 70 % (art. 261, parágrafo único)</td><td class="n"><b>até 2,8 %</b></td><td>o locador PF só destaca acima de R$ 240 mil por ano e mais de 3 imóveis (art. 251)</td></tr>
+          </tbody>
+        </table></div>
+        <p class="nota" style="margin-top:8px">Como calcular para o seu caso: tolerância = alíquota do item × fator do produto. Em 2027 a alíquota é a CBS de referência mais 0,1 % de IBS; em 2033, a soma cheia. O simulador faz a conta por categoria na ação "fornecedor" e mostra o preço máximo aceitável.</p>
+      </div>
+      <div>a resposta por regime</div><div>
+        <ul>
+          <li><b>Simples unificado:</b> tributariamente, <b>não</b>. O IBS/CBS está dentro do DAS e não há crédito. Pagar mais por nota só se justifica por risco fiscal, qualidade, prazo ou rastreabilidade. Mas veja a seção jurídica: compra sem documento é exposição a autuação, não economia.</li>
+          <li><b>Simples híbrido e Presumido:</b> sim, até a tolerância da tabela, e somente para os itens que têm alíquota. No restaurante do exemplo, 70 % das compras são cesta básica: para elas a nota não muda o imposto. É por isso que o híbrido perdeu para o unificado.</li>
+          <li><b>Produtor rural pequeno</b> (receita abaixo de R$ 3,6 milhões por ano): não destaca imposto, mas o comprador no regime regular tem crédito presumido sobre o valor da compra, calculado pelo percentual que o governo publica até setembro de cada ano; a compra precisa de documento fiscal com o valor da operação, o crédito e o líquido (LC 214, arts. 164 e 168). Enquanto o percentual não sai, o simulador registra o crédito como estimado.</li>
+        </ul>
+      </div>
+      <div>no simulador</div><div><p>Alternativas e plano → ação "fornecedor": informe as propostas reais (preço, frete, rendimento, prazo, regime, nota) e marque a origem como cotação recebida. Uma proposta hipotética mais cara não prova que "não vale trocar"; prova só que aquela proposta não vale.</p></div>
+      <div>como agir</div><div>
+        <ol>
+          <li>Classificar as compras dos últimos 12 meses por categoria e fator (zero, 60 %, cheia). Sem isso, não há como saber quanto de crédito está em jogo.</li>
+          <li>Se ficar no unificado: regularizar documentação pelo risco, sem esperar ganho de imposto.</li>
+          <li>Se optar pelo regime regular: renegociar primeiro embalagens, limpeza, gás, serviços e aluguel, que são onde o crédito existe; não pagar prêmio por nota em carne, arroz e feijão.</li>
+          <li>Pedir a todo fornecedor do Simples que informe a alíquota na nota; sem ela o crédito fica estimado e a conclusão bloqueada.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== TODAS AS DECISÕES ============================== -->
+<section id="todas">
+  <div class="sec-cab"><span class="eyebrow">mapa completo</span><h2>Todas as decisões, com início e data crítica</h2><p class="lead">Ordenadas pela data em que deixam de ser possíveis. "Início" é quando começar a preparar; "crítica" é a última data útil; "trava" diz por quanto tempo a decisão prende.</p></div>
+  <div class="bloco"><div class="rol"><table>
+    <thead><tr><th>#</th><th>decisão</th><th>início</th><th>crítica</th><th>trava</th><th>regra</th><th>onde conferir</th></tr></thead>
+    <tbody>
+      <tr><td class="n">1</td><td><b>Validar regime, anexo, limites e classificação das operações</b></td><td>agora</td><td>30/09/2026</td><td>—</td><td>LC 123, arts. 3º, 18 e 19; LC 214, art. 273</td><td>Dados → Estabelecimento; Backtest → Evidências</td></tr>
+      <tr><td class="n">2</td><td><b>Regime de IBS/CBS para jan–jun/2027</b> (unificado ou híbrido)</td><td>agora</td><td>30/09/2026 (cancelar até 30/11) <span class="selo warn">a confirmar</span></td><td>o semestre inteiro</td><td>LC 123, art. 18, §§ 9º–10; LC 214, art. 41, §§ 3º–5º</td><td>Comparar alternativas</td></tr>
+      <tr><td class="n">3</td><td><b>Política de preço para 2027</b>: manter o preço final, repassar parte ou tudo</td><td>outubro/2026</td><td>31/12/2026 para o cardápio de janeiro; testar por piloto antes</td><td>comercial, não legal</td><td>elasticidade sem evidência própria</td><td>Se eu não agir → Matriz 3×3; ação "reajuste"</td></tr>
+      <tr><td class="n">4</td><td><b>Mix de fornecedores</b>: nota, regime, prazo, preço</td><td>outubro/2026</td><td>início do semestre do regime escolhido</td><td>contratos</td><td>LC 214, arts. 26, 47, 125, 135, 148, 168; LC 123, art. 23</td><td>ação "fornecedor"; Dados → Fornecedores</td></tr>
+      <tr><td class="n">5</td><td><b>Perguntar aos fornecedores como vão reprecificar</b> (desoneração e repasse)</td><td>setembro/2026</td><td>antes de decidir o regime</td><td>—</td><td>hipóteses H-DES e H-REP do simulador</td><td>Se eu não agir → Incerteza</td></tr>
+      <tr><td class="n">6</td><td><b>Contrato de locação</b>: locador PF ou PJ, receita e nº de imóveis; renegociar se o crédito for relevante</td><td>outubro/2026</td><td>31/12/2026</td><td>vigência do contrato</td><td>LC 214, arts. 251, 260 e 261</td><td>Dados → Estabelecimento → Locador</td></tr>
+      <tr><td class="n">7</td><td><b>Emissão de documento fiscal com segregação</b>: natureza da operação, gorjeta, comissão e entrega da plataforma</td><td>outubro/2026</td><td>31/12/2026</td><td>—</td><td>Regulamento do IBS, arts. 398 e 399</td><td>Cobertura de obrigações (OB-05, OB-20)</td></tr>
+      <tr><td class="n">8</td><td><b>Política de gorjeta</b>: até 15 % e repasse integral ao empregado, documentado</td><td>outubro/2026</td><td>31/12/2026</td><td>—</td><td>LC 214, art. 274, parágrafo único, I; Lei 8.212, art. 22, I (gorjeta integra a base do INSS fora do Simples)</td><td>Dados → Receita (gorjeta %)</td></tr>
+      <tr><td class="n">9</td><td><b>Contrato com adquirente e plataforma</b>: a tarifa passa a carregar 10,85 % de IBS/CBS em 2027; renegociar MDR e antecipação</td><td>novembro/2026</td><td>31/12/2026</td><td>contrato</td><td>LC 214, arts. 182, IX, 198, 199 e 233</td><td>ação "antecipação"; Dados → Hipóteses (H-REPFIN)</td></tr>
+      <tr><td class="n">10</td><td><b>Bebidas alcoólicas e industrializadas</b>: separar na operação e no caixa; acompanhar a lei do Imposto Seletivo</td><td>outubro/2026</td><td>31/12/2026; IS sem data</td><td>—</td><td>LC 214, arts. 273, § 2º, III; 409 a 424</td><td>Se eu não agir → Enquadramento por operação</td></tr>
+      <tr><td class="n">11</td><td><b>Inventário físico de estoque em 31/12/2026</b> e conciliação de caixa, recebíveis e contas a pagar</td><td>dezembro/2026</td><td>31/12/2026</td><td>—</td><td>abertura de 2027 no simulador (C05, C06)</td><td>Dados → Abertura</td></tr>
+      <tr><td class="n">12</td><td><b>Data das compras de equipamento</b>: no regime regular o crédito é integral e imediato; comprar depois de a opção valer</td><td>quando planejar investir</td><td>início do semestre do regime</td><td>—</td><td>LC 214, art. 108</td><td>ação "perdas" (investimento); Backtest</td></tr>
+      <tr><td class="n">13</td><td><b>Pedir ou não ressarcimento</b> do saldo credor</td><td>quando houver saldo</td><td>—</td><td><b>trava a saída do regime regular por até 2 anos</b></td><td>LC 214, arts. 39, 40 e 41, § 5º</td><td>Dados → Hipóteses (H-RESSARC)</td></tr>
+      <tr><td class="n">14</td><td><b>Regime para jul–dez/2027</b></td><td>janeiro/2027, com a alíquota do Senado publicada</td><td>março/2027</td><td>o semestre</td><td>LC 123, art. 18, § 10</td><td>Comparar alternativas</td></tr>
+      <tr><td class="n">15</td><td><b>Redução de perdas</b>: medir antes de investir; piloto</td><td>agora (medição)</td><td>—</td><td>—</td><td>LC 214, art. 47, §§ 6º–7º (estorno do crédito do item perdido)</td><td>ação "perdas"</td></tr>
+      <tr><td class="n">16</td><td><b>Prazo de fornecedor vs. antecipação de cartão</b>: caixa contra resultado</td><td>outubro/2026</td><td>—</td><td>—</td><td>LC 214, art. 196 (crédito só sobre o deságio acima da curva de juros)</td><td>ações "prazo de fornecedor" e "antecipação"</td></tr>
+      <tr><td class="n">17</td><td><b>Split payment</b>: preparar o caixa para o imposto sair na liquidação</td><td>quando o ato conjunto sair</td><td>data do ato</td><td>—</td><td>LC 214, arts. 31 a 35</td><td>Dados → Hipóteses (H-SPLIT)</td></tr>
+      <tr><td class="n">18</td><td><b>Revisão anual</b>: rodar o simulador com 12 meses fechados antes de cada janela</td><td>agosto e fevereiro de cada ano</td><td>setembro e março</td><td>o semestre</td><td>LC 123, art. 18, § 10</td><td>Jornada → Etapa 1</td></tr>
+    </tbody>
+  </table></div></div>
+</section>
+
+<!-- ============================== JURÍDICO ============================== -->
+<section id="juridico">
+  <div class="sec-cab"><span class="eyebrow">aspectos jurídicos</span><h2>O que trava, o que obriga e o que expõe</h2><p class="lead">Lista para levar ao contador e ao advogado. Cada item cita o dispositivo lido; o que não foi lido está marcado.</p></div>
+  <div class="bloco"><header><h3>O que trava decisões</h3></header><div class="corpo">
+    <ul>
+      <li><b>Irretratabilidade por semestre.</b> A opção pelo regime regular de IBS/CBS vale para o semestre inteiro e não pode ser desfeita dentro dele (LC 123, art. 18, § 10, redação da LC 227/2026).</li>
+      <li><b>Trava do ressarcimento.</b> Quem receber ressarcimento de créditos de IBS/CBS no ano-calendário corrente ou no anterior não pode se retirar do regime regular (LC 214, art. 41, § 5º). Um pedido de ressarcimento em 2027 prende o estabelecimento até o fim de 2028.</li>
+      <li><b>Limites do Simples.</b> RBT12 acima de R$ 4,8 milhões exclui do regime; acima de R$ 3,6 milhões o ICMS e o ISS são recolhidos fora do DAS (LC 123, arts. 3º, 13-A, 19 e 20).</li>
+      <li><b>Produtor rural que opta pelo regime regular</b> fica preso ao ano-calendário inteiro (LC 214, art. 165, § 2º). Relevante se você mesmo produz insumos em outra empresa.</li>
+    </ul>
+  </div></div>
+  <div class="bloco"><header><h3>O que obriga a partir de 2027</h3></header><div class="corpo">
+    <ul>
+      <li><b>Segregação no documento fiscal.</b> Sem separar as operações do regime específico das demais, e sem destacar gorjeta e valores retidos pela plataforma, a base é o valor total da operação, pelo regime geral (Regulamento do IBS, arts. 398 e 399, §§ 2º e 4º).</li>
+      <li><b>Gorjeta.</b> Só sai da base se for repassada integralmente ao empregado e não passar de 15 % do fornecimento (LC 214, art. 274, parágrafo único, I). Fora do Simples, a gorjeta integra a remuneração para o INSS patronal (Lei 8.212, art. 22, I).</li>
+      <li><b>Crédito exige documento idôneo e pagamento</b> (LC 214, art. 47; Regulamento, art. 47). Compra parcelada gera crédito conforme paga.</li>
+      <li><b>Fornecedor do Simples deve informar a alíquota na nota</b> para o comprador creditar o valor efetivamente cobrado (LC 123, art. 23, § 2º).</li>
+      <li><b>Estorno do crédito de mercadoria perdida, deteriorada, furtada ou extraviada</b> (LC 214, art. 47, §§ 6º e 7º): controle de perdas passa a ser obrigação fiscal, não só gerencial.</li>
+      <li><b>Bens de uso pessoal não geram crédito</b>, e a lei cita bebidas alcoólicas expressamente (LC 214, art. 57, I e § 3º). Bebida para revenda gera; bebida consumida pelo sócio não.</li>
+      <li><b>Apuração mensal por tributo, saldo a recuperar transportado</b> (LC 214, arts. 39, § 1º, e 45). Saldo credor não é dinheiro; vira dinheiro só com pedido e prazo.</li>
+      <li><b>Documento fiscal eletrônico com os grupos de IBS/CBS</b> desde 2026, por ato conjunto RFB/Comitê Gestor. <span class="selo warn">ato não lido nesta execução</span></li>
+    </ul>
+  </div></div>
+  <div class="bloco"><header><h3>O que expõe</h3></header><div class="corpo">
+    <ul>
+      <li><b>Compra sem documento.</b> Além de não gerar crédito, impede comprovar o custo da mercadoria e alimenta presunção de omissão em fiscalização. O simulador marca como pendência que bloqueia a conclusão sobre custo, e a lista serve de inventário do risco.</li>
+      <li><b>Comissão de plataforma creditada em duplicidade.</b> A comissão e a entrega retidas pela plataforma saem da base, e por isso não geram crédito (LC 214, arts. 274, parágrafo único, II, e 303). Creditar as duas coisas é erro que o fisco identifica pelo cruzamento com a plataforma.</li>
+      <li><b>Classificação de NCM por prefixo.</b> O pão de forma (1905.90.10) tem redução de 60 %; o pão francês (1905.90.90) tem alíquota zero. Classificar pela família em vez do código completo gera imposto a menor ou a maior (LC 214, arts. 125 e 135, Anexos I e VII).</li>
+      <li><b>Bar que trata bebida alcoólica como alimentação.</b> A bebida alcoólica está fora do regime específico, ainda que preparada no estabelecimento (LC 214, art. 273, § 2º, III). Aplicar a redução de 40 % sobre ela é a autuação mais provável do setor.</li>
+      <li><b>Empresa de refeições coletivas</b> (CNAE 5620-1/01) usando a redução de 40 %: a lei a exclui nominalmente (LC 214, art. 273, § 2º, I).</li>
+      <li><b>Lucro Presumido com base de 8 % sem confirmação.</b> Se a Receita entender o fornecimento de alimentação como serviço, a base é 32 % (Lei 9.249, art. 15, § 1º, III). A diferença quadruplica o IRPJ e a CSLL. <span class="selo warn">interpretação a confirmar</span></li>
+      <li><b>Locador pessoa física que destaca imposto sem ser contribuinte</b>, ou o contrário: o crédito do aluguel depende de o locador exceder R$ 240 mil por ano e mais de 3 imóveis (LC 214, art. 251, § 1º, I).</li>
+    </ul>
+  </div></div>
+  <div class="bloco"><header><h3>O que ainda não existe e precisa ser acompanhado</h3></header><div class="corpo">
+    <ul>
+      <li>Alíquota de referência da CBS para 2027: resolução do Senado até 15/12/2026 (ADCT, art. 130).</li>
+      <li>Lei ordinária do Imposto Seletivo: alíquotas sobre bebidas alcoólicas e açucaradas (LC 214, art. 422).</li>
+      <li>Percentuais do crédito presumido rural: ato conjunto até setembro de cada ano (LC 214, art. 168, § 4º).</li>
+      <li>Cronograma do split payment para venda ao consumidor (LC 214, art. 35; Regulamento, art. 31).</li>
+      <li>Texto integral das Resoluções CGSN 186, 190 e 191/2026, lidas por notícia oficial: datas da janela, cancelamento e mecânica do DAS híbrido.</li>
+      <li>Resolução CGSN 140/2018, art. 40: data de vencimento do DAS (dia 20), não acessada.</li>
+    </ul>
+  </div></div>
+</section>
+
+<!-- ============================== 30 DIAS ============================== -->
+<section id="30dias">
+  <div class="sec-cab"><span class="eyebrow">agora</span><h2>Os próximos 30 dias: o que fazer em setembro de 2026</h2><p class="lead">Para chegar a 30 de setembro com uma decisão fundamentada ou com uma decisão consciente de esperar março.</p></div>
+  <ul class="check">
+    <li><span class="box"></span><span>Fechar os 12 meses de setembro de 2025 a agosto de 2026: receita por operação e canal, compras por categoria com fornecedor, estoque, despesas, DAS pago, extrato.</span><span class="quando">até 15/09</span></li>
+    <li><span class="box"></span><span>Carregar no simulador e conferir que a reconstrução fecha com o DAS. Resolver as diferenças não explicadas antes de qualquer cenário.</span><span class="quando">até 17/09</span></li>
+    <li><span class="box"></span><span>Pedir ao contador: honorário adicional do regime regular, confirmação do anexo e da segregação de receitas, e a alíquota efetiva de ICMS se o Presumido estiver na mesa.</span><span class="quando">até 18/09</span></li>
+    <li><span class="box"></span><span>Perguntar aos cinco maiores fornecedores como vão reprecificar em 2027 e se vão destacar o imposto; registrar a resposta nas hipóteses do simulador.</span><span class="quando">até 22/09</span></li>
+    <li><span class="box"></span><span>Ler o contrato de locação: quem é o locador e, se pessoa física, receita anual de locação e número de imóveis.</span><span class="quando">até 22/09</span></li>
+    <li><span class="box"></span><span>Rodar a comparação de regimes no horizonte 2027–2033 e ler a faixa, não o número central. Levar o resultado e a lista de pendências para a reunião com o contador.</span><span class="quando">até 25/09</span></li>
+    <li><span class="box"></span><span>Decidir: optar pelo regime regular só se a faixa inteira for favorável e o caixa suportar. Caso contrário, não optar, registrar por que, e agendar a reavaliação para fevereiro de 2027, com a alíquota do Senado publicada.</span><span class="quando">até 30/09</span></li>
+    <li><span class="box"></span><span>Salvar um snapshot da análise que fundamentou a decisão. Ele guarda dados, hipóteses, regras e resultado, e é a memória de por que se decidiu o que se decidiu.</span><span class="quando">30/09</span></li>
+  </ul>
+</section>
+
+<section id="limites">
+  <div class="sec-cab"><span class="eyebrow">limites</span><h2>O que este guia não decide</h2></div>
+  <p>Este roteiro organiza decisões e datas; não substitui o contador nem o advogado. Os números vêm de um restaurante fictício e mudam com a composição real de compras, canais e folha. Quatro pontos dependem de atos ainda não publicados, e dois pontos do Lucro Presumido são interpretações declaradas. As datas de 1 a 30 de setembro e de 30 de novembro vêm de notícia oficial sobre a Resolução CGSN 186/2026, cujo texto não foi acessado. Tudo o que está marcado como "a confirmar" deve ser fechado com o contador antes de agir.</p>
+  <p class="rodape">FAD-RT · Roteiro do empreendedor · data-base normativa 10/09/2026 · regras 2026.09.4 · motor 3.2.0. Simulador em <a href="https://franciscoegcardoso.github.io/fad-rt-simulador/">franciscoegcardoso.github.io/fad-rt-simulador</a>. Fontes: LC 214/2025 e LC 227/2026 (Câmara, texto atualizado); LC 123/2006; ADCT (Senado); Regulamento do IBS (Res. CGIBS 6/2026); Res. CGIBS 14/2026; Leis 9.249/1995, 7.689/1988 e 8.212/1991 (Câmara); IBGE/CONCLA.</p>
+</section>
+</div>
