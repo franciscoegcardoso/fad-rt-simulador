@@ -133,6 +133,43 @@ details.origem summary{cursor:pointer; font-family:"IBM Plex Mono",monospace; fo
 .g-leg{display:inline-block; width:14px; height:10px; border-radius:2px; vertical-align:middle; margin-right:4px}
 .g-leg.curto{background:var(--accent)} .g-leg.medio{background:var(--copper)} .g-leg.longo{background:var(--ink-3)} .g-leg.hojel{background:none; width:0; height:12px; border-left:2px solid var(--accent); border-radius:0}
 
+/* @gerado-inicio */
+ul.bl{margin:0; padding-left:18px; font-size:13px; color:var(--ink-2); display:grid; gap:3px; max-width:88ch} ul.bl li::marker{color:var(--accent)} ul.bl b{color:var(--ink)}
+.kv{display:flex; flex-wrap:wrap; gap:4px 14px; font-size:12.5px; color:var(--ink-2); margin:0} .kv span b{color:var(--ink)}
+.grade{display:grid; gap:14px} @media(min-width:760px){ .g2{grid-template-columns:repeat(2,1fr)} }
+details.origem summary{cursor:pointer; font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-ink)} details.origem ul{margin:4px 0 0; padding-left:16px; font-size:12px; color:var(--ink-2)}
+/* ---- linha do tempo dinâmica (cabeçalho do roteiro) ---- */
+.tempo{display:flex; gap:0; align-items:stretch; min-width:max-content; padding:14px 0 6px; position:relative}
+.tempo::before{content:""; position:absolute; left:0; right:0; top:26px; height:2px; background:var(--rule-strong)}
+.tempo .no{position:relative; width:250px; flex:none; margin-right:14px; padding:22px 12px 10px 12px; border:1px solid var(--rule); background:var(--surface); display:grid; gap:5px; align-content:start; font-size:12.5px; color:var(--ink-2)}
+.tempo .no::before{content:""; position:absolute; top:-8px; left:14px; width:10px; height:10px; border-radius:50%; background:var(--surface); border:2px solid var(--rule-strong); transform:translateY(20px)}
+.tempo .no.curto::before{border-color:var(--accent)} .tempo .no.medio::before{border-color:var(--copper)} .tempo .no.longo::before{border-color:var(--ink-3)}
+.tempo .no.marco::before{border-radius:0; transform:translateY(20px) rotate(45deg); background:var(--copper); border-color:var(--copper)}
+.tempo .no.agora{border-color:var(--accent); background:var(--accent-soft); box-shadow:inset 0 3px 0 var(--accent)}
+.tempo .no .q{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3)}
+.tempo .no.agora .q{color:var(--accent-ink); font-weight:600}
+.tempo .no .n{font-family:"IBM Plex Sans Condensed",sans-serif; font-weight:700; font-size:14.5px; color:var(--ink); line-height:1.15}
+.tempo .no ul{margin:0; padding:0; list-style:none; display:grid; gap:3px} .tempo .no li{line-height:1.3} .tempo .no li.mk{color:var(--copper-ink); font-weight:600} .tempo .no li.mk b{font-family:"IBM Plex Mono",monospace; font-weight:600}
+.tempo .no .mais{font-size:11.5px; color:var(--ink-3); margin-top:2px}
+/* ---- Gantt do roadmap ---- */
+.gantt{display:grid; gap:2px 1px; min-width:900px; font-size:12px; position:relative; align-items:center}
+.gantt .g-rot{grid-column:1; padding:5px 10px 5px 4px; display:grid; gap:1px; position:sticky; left:0; background:var(--surface); z-index:2; border-right:1px solid var(--rule)}
+.gantt .g-rot b{font-size:12.5px; line-height:1.2} .gantt .g-rot .cod{font-size:10.5px}
+.gantt .g-cab{font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); text-align:center; padding:4px 2px; border-bottom:1px solid var(--rule); white-space:nowrap}
+.gantt .g-faixa{font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; text-align:center; padding:4px; color:var(--ink)}
+.gantt .g-faixa.curto{background:var(--accent-soft)} .gantt .g-faixa.medio{background:var(--copper-soft)} .gantt .g-faixa.longo{background:var(--surface-2)}
+.gantt .g-grupo{font-family:"IBM Plex Sans Condensed",sans-serif; font-weight:600; font-size:13px; padding:7px 4px 3px; border-bottom:1px solid var(--rule-strong); position:sticky; left:0; background:var(--surface); z-index:2}
+.gantt .g-barra{height:22px; border-radius:3px; display:flex; align-items:center; padding:0 8px; font-family:"IBM Plex Mono",monospace; font-size:10.5px; color:#fff; white-space:nowrap; overflow:hidden; z-index:1; position:relative}
+.gantt .g-barra.curto{background:var(--accent)} .gantt .g-barra.medio{background:var(--copper)} .gantt .g-barra.longo{background:var(--ink-3)}
+:root[data-theme="dark"] .gantt .g-barra, :root:not([data-theme="light"]) .gantt .g-barra{color:#08191D}
+.gantt .g-barra.decidir{outline:2px solid var(--crit); outline-offset:-2px}
+.gantt .g-marco{font-size:14px; color:var(--copper); text-align:center; line-height:1; padding:6px 0 2px; display:grid; gap:2px; z-index:1}
+.gantt .g-marco span{font-family:"IBM Plex Mono",monospace; font-size:9px; color:var(--ink-3); white-space:nowrap; letter-spacing:0}
+.gantt .g-linha{justify-self:center; width:0; height:100%; border-left:2px dashed var(--copper); opacity:.55; z-index:0; pointer-events:none}
+.gantt .g-linha.hoje{border-left:2px solid var(--accent); opacity:.9}
+.g-leg{display:inline-block; width:14px; height:10px; border-radius:2px; vertical-align:middle; margin-right:4px}
+.g-leg.curto{background:var(--accent)} .g-leg.medio{background:var(--copper)} .g-leg.longo{background:var(--ink-3)} .g-leg.hojel{background:none; width:0; height:12px; border-left:2px solid var(--accent); border-radius:0}
+/* @gerado-fim */
 @media (prefers-reduced-motion: reduce){ *{scroll-behavior:auto} }
 </style>
 
@@ -150,6 +187,7 @@ details.origem summary{cursor:pointer; font-family:"IBM Plex Mono",monospace; fo
 
 <div class="wrap">
 <nav class="sumario" aria-label="Sumário">
+  <a href="#agora"><span class="n">Daqui para a frente</span><span class="d">o que fazer em cada momento, a partir de hoje</span></a>
   <a href="#linha"><span class="n">Linha do tempo</span><span class="d">todas as datas, do que está aberto hoje a 2033</span></a>
   <a href="#d1"><span class="n">1 · Validar o regime atual</span><span class="d">Simples, anexo, limites e enquadramento</span></a>
   <a href="#d2"><span class="n">2 · Mudar de regime?</span><span class="d">unificado, híbrido ou presumido, e quando</span></a>
@@ -162,6 +200,10 @@ details.origem summary{cursor:pointer; font-family:"IBM Plex Mono",monospace; fo
 <p class="aviso acc"><b>Como ler este guia.</b> Cada decisão vem numa ficha com a mesma estrutura: a pergunta, quando começar a preparar, a data crítica, se dá para voltar atrás, como conferir no simulador, o que a lei diz e o que fazer. Onde aparece um dispositivo, ele foi lido na fonte primária nesta execução. Onde aparece <span class="selo warn">a confirmar</span>, a informação veio de notícia oficial ou de ato ainda não publicado, e o contador precisa fechar. Os valores em reais são do restaurante fictício da demonstração e servem só para mostrar a ordem de grandeza.</p>
 
 <!-- ============================== LINHA DO TEMPO ============================== -->
+<section id="agora">
+  <div class="sec-cab"><span class="eyebrow">daqui para a frente</span><h2>O que fazer em cada momento</h2><p class="lead">Calculado de 2026-09-10: o primeiro nó é o de agora; ◆ marca um marco com data. No simulador, esta linha muda com a data de referência da análise e mostra o estado da base e a decisão de regime corrente.</p></div>
+  <div class="bloco"><div class="corpo"><div class="rol"><div class="tempo"><div class="no curto agora marco"><span class="q">agora · set/26</span><span class="n">O que fazer agora</span><ul><li class="mk">◆ <b>30/09</b> opção jan–jun/27</li><li>▸ Fechar os 12 meses e validar a base</li><li>▸ Reunião com o contador: dados que só ele tem</li><li>▸ Consultar os cinco maiores fornecedores</li></ul><span class="mais">+1 <details class="origem"><summary>ver tudo</summary><ul><li>◆ <b>30/09</b> opção jan–jun/27</li><li>▸ Fechar os 12 meses e validar a base</li><li>▸ Reunião com o contador: dados que só ele tem</li><li>▸ Consultar os cinco maiores fornecedores</li><li>▸ Decidir o regime de IBS/CBS para jan–jun/2027</li></ul></details></span></div><div class="no curto"><span class="q">out/26 · em 21 dias</span><span class="n">O que começa</span><ul><li>▸ Política de preço e cardápio de 2027</li><li>▸ Renegociar fornecedores e mix de compras</li><li>▸ Revisar o contrato de locação</li><li>▸ Ajustar a emissão fiscal: segregação, gorjeta e plataforma</li></ul></div><div class="no curto marco"><span class="q">nov/26 · em 81 dias</span><span class="n">cancelar opção</span><ul><li class="mk">◆ <b>30/11</b> cancelar opção</li><li>▸ Renegociar adquirente e plataforma de delivery</li></ul></div><div class="no curto marco"><span class="q">dez/26 · em 96 dias</span><span class="n">alíquota CBS (Senado)</span><ul><li class="mk">◆ <b>15/12</b> alíquota CBS (Senado)</li><li>▸ Inventário físico e conciliação de abertura de 2027</li></ul></div><div class="no medio marco"><span class="q">1T/27 · em 113 dias</span><span class="n">reforma vale</span><ul><li class="mk">◆ <b>01/01</b> reforma vale</li><li class="mk">◆ <b>31/03</b> opção jul–dez/27</li><li>▸ Operar no regime escolhido e acompanhar créditos e pendências</li><li>▸ Reavaliar o regime a cada janela (março e setembro)</li></ul><span class="mais">+3 <details class="origem"><summary>ver tudo</summary><ul><li>◆ <b>01/01</b> reforma vale</li><li>◆ <b>31/03</b> opção jul–dez/27</li><li>▸ Operar no regime escolhido e acompanhar créditos e pendências</li><li>▸ Reavaliar o regime a cada janela (março e setembro)</li><li>▸ Executar e medir as ações aprovadas: perdas, reajuste, fornecedores</li><li>▸ Acompanhar atos pendentes: alíquota do Senado, lei do IS, crédito rural, split payment</li><li>▸ Investimentos programados no regime regular</li></ul></details></span></div><div class="no medio marco"><span class="q">3T/27 · em 385 dias</span><span class="n">crédito rural (ato)</span><ul><li class="mk">◆ <b>30/09</b> crédito rural (ato)</li></ul></div><div class="no longo marco"><span class="q">2029 · em 844 dias</span><span class="n">rampa ICMS/ISS</span><ul><li class="mk">◆ <b>01/01</b> rampa ICMS/ISS</li><li>▸ Transição ICMS/ISS → IBS: rever preço e regime a cada ano</li><li>▸ Reavaliar o Lucro Presumido conforme folha, margem e ICMS mudam</li></ul></div><div class="no longo marco"><span class="q">2033 · em 2305 dias</span><span class="n">sistema pleno</span><ul><li class="mk">◆ <b>01/01</b> sistema pleno</li><li>▸ Sistema pleno: rerodar o histórico com o calendário 2033</li></ul></div></div></div></div></div>
+</section>
 <section id="linha">
   <div class="sec-cab"><span class="eyebrow">calendário</span><h2>Linha do tempo: o que está aberto hoje e o que vem depois</h2><p class="lead">Datas contadas a partir de 10/09/2026. As marcadas em cobre são irreversíveis quando passam.</p></div>
   <div class="bloco"><div class="corpo" style="padding:0 16px">
