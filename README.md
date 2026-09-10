@@ -8,6 +8,18 @@ Simulador parametrizado de decisões sobre a reforma tributária para estabeleci
 
 Protótipo funcional em arquivo único (HTML + JavaScript, sem servidor, sem banco de dados, sem serviço externo e sem IA generativa). Todos os cálculos rodam no navegador; nada é enviado para fora da máquina de quem abre a página.
 
+## As três camadas
+
+Toda a análise é construída sobre a mesma janela de meses, três vezes, com os mesmos dados observados. O que muda são as regras e as decisões aplicadas sobre eles.
+
+| Camada | Nome | Pergunta que responde |
+|---|---|---|
+| **A** | Histórico reconstruído | o que de fato aconteceu? Os meses do arquivo recalculados com as regras que valiam em cada um deles |
+| **B** | Reforma sem nenhuma ação | o que aconteceria se a reforma já valesse e nada fosse feito? A referência de toda comparação |
+| **C** | Reforma com a ação testada | e se, além da reforma, a ação fosse executada? B mais as ações, com datas e desembolsos |
+
+Duas contas, que nunca se somam: **impacto da reforma = B − A** e **benefício da ação = C − B**. Uma melhoria de gestão não vira mérito da reforma, e uma ação não apaga a reforma.
+
 Responde, para uma janela histórica de 12 meses:
 
 - qual é a exposição do estabelecimento à reforma (impacto no resultado e no caixa);
